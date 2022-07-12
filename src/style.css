@@ -1,0 +1,153 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Finlandica', sans-serif;
+}
+
+body {
+    overflow: hidden;
+}
+
+.header {
+    height: 12vh;
+    background-color: rgb(0, 183, 255);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 1px solid rgb(150, 150, 150);
+}
+
+.header__logo {
+    font-size: 3rem;
+    margin-left: 5%;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-style: italic;
+}
+
+.header__links {
+    margin-right: 5%;
+    white-space: nowrap;
+}
+
+.header__links a {
+    margin: 0 3%;
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.header__links a:hover {
+    color: rgb(36, 6, 143);
+    border-bottom: 3px solid rgb(36, 6, 143);
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+}
+
+.userRL {
+    width: 250px;
+    background-color: rgb(0, 183, 255);
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    padding: 5px;
+    border-radius: 3%;
+    border: 1px solid rgb(83, 114, 216)
+}
+
+.userRL__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.userRL__form input {
+    margin: .5vh 0;
+    text-align: center;
+}
+
+.userRL__form p{
+    font-size: .9rem;
+    text-align: center;
+    margin: .5vh 0;
+}
+
+.userRL__form p a{
+    font-size: .9rem;
+}
+
+.loginBtn {
+    width: 50%;
+    align-self: center;
+    background-color: rgb(59, 56, 230);
+    border: none;
+    padding: 2px;
+    color: white;
+    border-radius: 8%;
+}
+
+.loginBtn:hover {
+    background-color: rgb(16, 14, 186);
+    cursor: pointer;
+}
+
+.loginInput {
+    background-color: rgb(231, 231, 231);
+    border: none;
+    width: 80%;
+    align-self: center;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+
+.loginInput:focus-visible {
+    outline: none;
+    background-color: rgb(255, 255, 255);
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+}
+
+.material-symbols-outlined {
+    font-size: 1.6rem;
+}
+
+.ChatContainer {
+    min-width: 200px;
+    width: 20%;
+    height: 89vh;
+    background-color: rgb(44,44,44);
+    color: white;
+    position: absolute;
+    z-index: -2;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerFormSignup {
+    width: 40%;
+    margin: 5vh auto;
+    /* border: 1px solid black; */
+    box-shadow: grey 1px 1px 1px 1px;
+    padding: 10px;
+    border-radius: 1%;
+}
+
+.crearCuentaTitle {
+    display: inline;
+    text-align: center;
+    margin: 2vh auto;
+    border-bottom: 1px solid black;
+}
+
+.signUpForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.signUpForm label {
+    text-align: end;
+}
