@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const SignUpForm = () => {
 
     const nav = useNavigate();
 
+    const [emailUsed, setemailUsed] = useState(false)
+
     const onSubmit = (e) => {
         e.preventDefault();
-        fetch('http://localhost:8080/api/signup',{
+        fetch('http://localhost:8080/api/users/signup',{
             method:'POST',
             body:JSON.stringify({
                 name: e.target.name.value,
@@ -15,15 +17,19 @@ const SignUpForm = () => {
                 password: e.target.password.value,
                 phone: e.target.phone.value,
                 adress: e.target.adress.value,
-                age: e.target.age.value
             }),
             headers:{
                 "Content-Type": "application/json",
             },
             redirect:'follow'
         }).then(res => res.json()).then(data => {
-            if(data.msg == 'signup successful'){
+            console.log(data)
+            if(data.data == 'signup successful'){
                 nav('/')
+            }
+            else if(data.data == 'Email already used'){
+                setemailUsed(true);
+                e.target.email.value = '';
             }
         }).catch()
     }
@@ -42,13 +48,10 @@ const SignUpForm = () => {
                 <input type="text" name='phone' id='phone' required/>
                 <label htmlFor="adress">Dirección</label>
                 <input type="text" name="adress" id="adress" required/>
-                <label htmlFor="age">Edad</label>
-                <input type="number" name="age" id="age" required/>
-                <label htmlFor="avatar">Sube un avatar</label>
-                <input type="file" name="avatar" id="avatar" accept='image/png, image/gif, image/jpeg' />
                 <div></div>
                 <input className='loginBtn' type="submit" value="Signup" />
             </form>
+            {!emailUsed ? <></> : <span className='emailUsedError'>Email already used</span>}
         </div>
     )
 }
